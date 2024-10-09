@@ -23,7 +23,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
 //validate form
-        $request->validate($request, [
+        $request->validate([
             'foto_mahasiswa' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nim' => 'required|min:5',
             'nama_mahasiswa' => 'required|min:5']);
