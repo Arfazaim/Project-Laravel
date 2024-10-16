@@ -16,17 +16,16 @@ class PostController extends Controller
     }
 
     public function create()
-    {
-        return view('posts.create');
-    }
-
+{
+    return view('posts.create');
+}
     public function store(Request $request)
     {
 //validate form
-        $request->validate([
+        $request->validate( [
             'foto_mahasiswa' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nim' => 'required|min:5',
-            'nama_mahasiswa' => 'required|min:5']);
+            'nama_mahasiswa' => 'required|min:5' ]);
 //upload image
         $image = $request->file('foto_mahasiswa');
         $image->storeAs('public/posts', $image->hashName());
@@ -38,6 +37,7 @@ class PostController extends Controller
         ]);
 //redirect to index
         return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Disimpan!']);
+
     }
     public function edit(Post $post)
     {
@@ -46,9 +46,8 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
 //validate form
-        $this->validate($request, [
-            'foto_mahasiswa' =>
-                'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        $request->validate( [
+            'foto_mahasiswa' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nim' => 'required|min:5',
             'nama_mahasiswa' => 'required|min:5' ]);
 //check if image is uploaded
