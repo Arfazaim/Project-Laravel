@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PDF; // Import the PDF facade
 
 class PostController extends Controller
 {
@@ -17,6 +18,17 @@ class PostController extends Controller
         $posts = Post::latest()->paginate(5);
 //render view with posts
         return view('posts.index', compact('posts'));
+    }
+    public function downloadPDF()
+    {
+        $posts = Post::all(); // Fetch all posts (students)
+        $pdf = PDF::loadView('posts.pdf', compact('posts')); // Create PDF from the view
+        return $pdf->download('mahasiswa.pdf'); // Download the generated PDF
+    }
+    public function show($id)
+    {
+        $post = Post::findOrFail($id); // Fetch the student by ID
+        return view('posts.show', compact('post')); // Return the view with the student data
     }
 
     public function create()

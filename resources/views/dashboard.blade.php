@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Modernize Free</title>
-    <link rel="shortcut icon" type="image/png" href="{{asset('Modernize/src/assets/images/logos/favicon.png')}}"/>
+    <title>Arfazaim</title>
+    <link rel="shortcut icon" type="image/png" href="{{asset('Modernize/src/assets/images/logos/app-development.png')}}"/>
     <link rel="stylesheet" href="{{asset('Modernize/src/assets/css/styles.min.css')}}">
 </head>
 
@@ -38,11 +38,9 @@
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                             <li class="nav-item dropdown">
-                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
-                                   data-bs-toggle="dropdown"
-                                   aria-expanded="false">
-                                    <img src="{{asset('Modernize/src/assets/images/profile/user-1.jpg')}}" alt=""
-                                         width="35" height="35" class="rounded-circle">
+                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('Modernize/src/assets/images/profile/user-1.jpg')}}" alt="" width="35" height="35" class="rounded-circle">
+                                    <span class="ms-2">{{ Auth::user()->name }}</span> <!-- Add this line -->
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                      aria-labelledby="drop2">
