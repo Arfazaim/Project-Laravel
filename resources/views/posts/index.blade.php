@@ -6,7 +6,7 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <a href="{{ route('posts.create') }}" class="btn btn-md btn-success mb-3">TAMBAH MAHASISWA</a>
-                        <a href="{{ route('posts.download') }}" class="btn btn-md btn-info mb-3">PDF</a>
+                        <a href="{{ route('posts.download') }}" class="btn btn-md btn-info mb-3">Cetak PDF</a>
                         <table class="table table-bordered">
                             <thead>
                             <tr>
