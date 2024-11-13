@@ -24,16 +24,14 @@ Route::get('/posts/download', [PostController::class, 'downloadPDF'])->name('pos
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+Route::resource('/post',\App\Http\Controllers\PostController::class);
+Route::resource('/fakultas',\App\Http\Controllers\FakultasController::class);
+Route::resource('/prodi',\App\Http\Controllers\ProdiController::class);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
