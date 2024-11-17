@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+@extends('dashboard')
+@section('content')
 <div class="card-body">
     <form action="{{ route('prodi.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -6,7 +7,7 @@
             <label class="font-weight-bold">NAMA</label>
             <input type="text" class="form-control @error('nama_prodi') is-invalid
             @enderror"
-                   name="nama_prodi" value="{{ old('nama_prodi') }}" placeholder="Masukkan Nama Fakultas">
+                   name="nama_prodi" value="{{ old('nama_prodi') }}" placeholder="Masukkan Nama Prodi">
             <!-- error message untuk nim -->
             @error('nim')
             <div class="alert alert-danger mt-2">
@@ -33,3 +34,4 @@
 <button type="reset" class="btn btn-md btn-warning">RESET</button>
 </form>
 </div>
+@endsection

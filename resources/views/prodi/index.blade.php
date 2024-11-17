@@ -1,7 +1,7 @@
 @extends('dashboard')
 @section('content')
     <div class="card-body">
-        <a href="{{ route('prodi.create') }}" class="btn btn-md btn-success mb-3 bg-">TAMBAH MAHASISWA</a>
+        <a href="{{ route('prodi.create') }}" class="btn btn-md btn-success mb-3 bg-">Tambah Prodi</a>
         <table class="table table-bordered">
             <thead>
             <tr>

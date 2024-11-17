@@ -33,6 +33,22 @@
                         <span class="hide-menu">Data Mahasiswa</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href={{'fakultas'}} aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                        <span class="hide-menu">Fakultas</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href={{'prodi'}} aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>
+                </span>
+                        <span class="hide-menu">Prodi</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

@@ -1,3 +1,5 @@
+@extends('dashboard')
+@section('content')
 <div class="card-body">
     <form action="{{ route('fakultas.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -25,3 +27,4 @@
 <button type="reset" class="btn btn-md btn-warning">RESET</button>
 </form>
 </div>
+@endsection

@@ -25,6 +25,7 @@ class PostController extends Controller
         $pdf = PDF::loadView('posts.pdf', compact('posts')); // Create PDF from the view
         return $pdf->download('mahasiswa.pdf'); // Download the generated PDF
     }
+
     public function show($id)
     {
         $post = Post::findOrFail($id); // Fetch the student by ID
