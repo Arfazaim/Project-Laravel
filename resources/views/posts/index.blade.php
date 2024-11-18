@@ -13,6 +13,7 @@
                                 <th scope="col">FOTO</th>
                                 <th scope="col">NIM</th>
                                 <th scope="col">NAMA MAHASISWA</th>
+                                <th scope="col">PROGRAM STUDI</th> <!-- Kolom baru untuk Program Studi -->
                                 <th scope="col">ACT</th>
                             </tr>
                             </thead>
@@ -20,10 +21,11 @@
                             @forelse ($posts as $post)
                                 <tr>
                                     <td class="text-center">
-                                        <img src="{{ asset('storage/public/posts/'. $post->foto_mahasiswa) }}" class="rounded-circle" style="width: 80px; height: 85px">
+                                        <img src="{{ asset('storage/public/posts/' . $post->foto_mahasiswa) }}" class="rounded-circle" style="width: 80px; height: 85px">
                                     </td>
                                     <td>{{ $post->nim }}</td>
                                     <td>{{ $post->nama_mahasiswa }}</td>
+                                    <td>{{ $post->prodi->nama ?? 'Tidak Diketahui' }}</td> <!-- Menampilkan nama program studi -->
                                     <td class="text-center">
                                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-info">SHOW</a>
                                         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
@@ -36,7 +38,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="text-center alert alert-danger">Data Mahasiswa belum Tersedia.</td>
+                                    <td colspan="5" class="text-center alert alert-danger">Data Mahasiswa belum Tersedia.</td>
                                 </tr>
                             @endforelse
                             </tbody>
@@ -48,4 +50,3 @@
         </div>
     </div>
 @endsection
-

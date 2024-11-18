@@ -9,7 +9,12 @@ class Post extends Model
 {
     use HasFactory;
     protected $guarded;
-    public function user(){
-        return $this->belongsTo(Post::class);
+//    public function user(){
+//        return $this->belongsTo(Post::class);
+//    }
+
+    public function prodi()
+    {
+        return $this->belongsTo(Prodi::class, 'program_studi_id');
     }
 }
