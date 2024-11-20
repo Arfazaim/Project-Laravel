@@ -15,6 +15,6 @@ class Post extends Model
 
     public function prodi()
     {
-        return $this->belongsTo(Prodi::class, 'program_studi_id');
+        return $this->belongsTo(Prodi::class, 'prodi_id');
     }
 }

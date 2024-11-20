@@ -28,14 +28,20 @@
         <th>FOTO</th>
         <th>NIM</th>
         <th>NAMA MAHASISWA</th>
+        <th>PROGRAM STUDI</th>
+        <th>FAKULTAS</th>
     </tr>
     </thead>
     <tbody>
     @foreach ($posts as $post)
         <tr>
-            <td><img src="{{ asset('storage/public/posts/'. $post->foto_mahasiswa) }}" style="width: 80px; height: 85px"></td>
+            <td class="text-center">
+                <img src="{{ asset('storage/public/posts/' . $post->foto_mahasiswa) }}" class="rounded-circle" style="width: 80px; height: 85px">
+            </td>
             <td>{{ $post->nim }}</td>
             <td>{{ $post->nama_mahasiswa }}</td>
+            <td>{{ $post->prodi->nama_prodi ?? 'Prodi tidak ditemukan' }}</td>
+            <td></td>
         </tr>
     @endforeach
     </tbody>

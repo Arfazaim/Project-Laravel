@@ -15,18 +15,15 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        // Get posts
-//        $posts = Post::latest()->paginate(5);
-//        $prodis = Prodi::all();
-        // Render view with posts and prodis
-//        return view('posts.index', compact('posts', 'prodis'));
+        $search = $request->input('search');
+        $posts = Post::when($search, function ($query, $search) {
+            return $query->where('nama_mahasiswa', 'like', "%{$search}%")
+                ->orWhere('nim', 'like', "%{$search}%");
+        })->paginate(10);
 
-        $posts = Post::with('prodi')->paginate(10); // 10 adalah jumlah item per halaman
         return view('posts.index', compact('posts'));
-
-
     }
 
     public function downloadPDF()

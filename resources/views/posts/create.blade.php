@@ -42,10 +42,9 @@
                                 <select class="form-control @error('prodi_id') is-invalid @enderror" name="prodi_id">
                                     <option value="">Pilih Program Studi</option>
                                     @foreach($prodis as $prodi)
-                                        <option value="{{ $prodi->id }}">{{ $prodi->nama }}</option>
+                                        <option value="{{ $prodi->id }}">{{ $prodi->nama_prodi }}</option>
                                     @endforeach
                                 </select>
-                                <!-- error message untuk prodi_id -->
                                 @error('prodi_id')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}

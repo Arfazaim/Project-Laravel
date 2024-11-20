@@ -1,10 +1,17 @@
 @extends('dashboard')
+
 @section('content')
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
+                        <form action="{{ route('posts.index') }}" method="GET" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Cari Mahasiswa..." value="{{ request('search') }}">
+                                <button type="submit" class="btn btn-md btn-primary">Cari</button>
+                            </div>
+                        </form>
                         <a href="{{ route('posts.create') }}" class="btn btn-md btn-success mb-3">TAMBAH MAHASISWA</a>
                         <a href="{{ route('posts.download') }}" class="btn btn-md btn-info mb-3">Cetak PDF</a>
                         <table class="table table-bordered">
@@ -13,7 +20,7 @@
                                 <th scope="col">FOTO</th>
                                 <th scope="col">NIM</th>
                                 <th scope="col">NAMA MAHASISWA</th>
-                                <th scope="col">PROGRAM STUDI</th> <!-- Kolom baru untuk Program Studi -->
+                                <th scope="col">PROGRAM STUDI</th>
                                 <th scope="col">ACT</th>
                             </tr>
                             </thead>
@@ -25,7 +32,7 @@
                                     </td>
                                     <td>{{ $post->nim }}</td>
                                     <td>{{ $post->nama_mahasiswa }}</td>
-                                    <td>{{ $post->prodi->nama ?? 'Tidak Diketahui' }}</td> <!-- Menampilkan nama program studi -->
+                                    <td>{{ $post->prodi->nama_prodi ?? 'Prodi tidak ditemukan' }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-info">SHOW</a>
                                         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
